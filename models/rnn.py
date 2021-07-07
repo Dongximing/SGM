@@ -5,7 +5,7 @@ from torch.nn.utils.rnn import pack_padded_sequence as pack
 from torch.nn.utils.rnn import pad_packed_sequence as unpack
 import models
 #####
-
+####
 class rnn_encoder(nn.Module):
 
     def __init__(self, config, embedding=None):
