@@ -42,6 +42,7 @@ class seq2seq(nn.Module):
         src = src.t()
         dec = dec.t()
         targets = targets.t()
+        print("seq2seq")
         print("dec")
         print(dec.size())
         print("targets")
@@ -113,6 +114,8 @@ class seq2seq(nn.Module):
         _, ind = torch.sort(indices)
         src = torch.index_select(src, dim=0, index=indices)
         src = src.t()
+        print("output")
+        print(src.size())
         batch_size = src.size(1)
         contexts, encState = self.encoder(src, lengths.tolist())
 
@@ -157,6 +160,9 @@ class seq2seq(nn.Module):
 
             # Run one step.
             output, decState, attn = self.decoder(inp, decState)
+            print("output")
+            print(output.size())
+
             # decOut: beam x rnn_size
 
             # (b) Compute a vector of batch*beam word scores.
