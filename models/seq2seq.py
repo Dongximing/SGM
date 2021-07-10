@@ -42,6 +42,12 @@ class seq2seq(nn.Module):
         src = src.t()
         dec = dec.t()
         targets = targets.t()
+        print("dec")
+        print(dec.size())
+        print("targets")
+        print(targets.size())
+        print("tgt")
+        print(targets.size())
 
         contexts, state = self.encoder(src, src_len.tolist())
 
@@ -55,6 +61,8 @@ class seq2seq(nn.Module):
             output, state, _ = self.decoder(input.squeeze(0), state, output)
             outputs.append(output)
         outputs = torch.stack(outputs)
+        print("output")
+        print(output.size())
 
         loss = self.compute_loss(outputs, targets)
         return loss, outputs

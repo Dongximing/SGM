@@ -131,12 +131,7 @@ def train_model(model, data, optim, epoch, params):
         tgt = torch.index_select(tgt, dim=0, index=indices)
         dec = tgt[:, :-1]
         targets = tgt[:, 1:]
-        print("dec")
-        print(dec.size())
-        print("targets")
-        print(targets.size())
-        print("tgt")
-        print(tgt.size())
+
 
 
 
