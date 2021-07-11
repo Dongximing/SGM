@@ -61,8 +61,12 @@ class seq2seq(nn.Module):
         for input in dec.split(1):
             output, state, _ = self.decoder(input.squeeze(0), state, output)
             outputs.append(output)
+            print('output')
+            print(output.size())
+        print("before stack")
+        print(outputs.size())
         outputs = torch.stack(outputs)
-        print("output")
+        print("outputs")
         print(outputs.size())
 
         loss = self.compute_loss(outputs, targets)
