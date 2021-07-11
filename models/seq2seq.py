@@ -59,12 +59,16 @@ class seq2seq(nn.Module):
         output = None
 
         for input in dec.split(1):
+            print("input before decoder")
+            print(input.size())
             output, state, _ = self.decoder(input.squeeze(0), state, output)
+            print('input')
+            print(input.size())
             outputs.append(output)
             print('output')
             print(output.size())
-        print("before stack")
-        print(outputs.size())
+        # print("before stack")
+        # print(outputs.size())
         outputs = torch.stack(outputs)
         print("outputs")
         print(outputs.size())
