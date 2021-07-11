@@ -133,6 +133,7 @@ def train_model(model, data, optim, epoch, params):
         targets = tgt[:, 1:]
         print("train============")
         print("dec")
+        print(dec)
         print(dec.size())
         print("targets")
         print(targets.size())
