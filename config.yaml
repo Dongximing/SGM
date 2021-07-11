@@ -1,7 +1,7 @@
 data: './data/save_data/'
 logF: 'experiments/'
 epoch: 20
-batch_size: 64
+batch_size: 16
 optim: 'adam'
 cell: 'lstm'
 attention: 'luong_gate'
