@@ -42,7 +42,7 @@ class seq2seq(nn.Module):
         src = src.t()
         dec = dec.t()
         targets = targets.t()
-        print("seq2seq")
+        print("seq2seq==========")
         print("dec")
         print(dec.size())
         print("targets")
@@ -62,8 +62,7 @@ class seq2seq(nn.Module):
             print("input before decoder")
             print(input.size())
             output, state, _ = self.decoder(input.squeeze(0), state, output)
-            print('input')
-            print(input.size())
+
             outputs.append(output)
             print('output')
             print(output.size())
