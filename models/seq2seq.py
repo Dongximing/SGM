@@ -63,7 +63,7 @@ class seq2seq(nn.Module):
             outputs.append(output)
         outputs = torch.stack(outputs)
         print("output")
-        print(output.size())
+        print(outputs.size())
 
         loss = self.compute_loss(outputs, targets)
         return loss, outputs
