@@ -15,7 +15,7 @@ class seq2seq(nn.Module):
             self.encoder = models.rnn_encoder(config)
         tgt_embedding = self.encoder.embedding if config.shared_vocab else None
         print('=====tgt_emebdding==========')
-        print(tgt_embedding[:3])
+        print(tgt_embedding[:4])
         if decoder is not None:
             self.decoder = decoder
         else:
