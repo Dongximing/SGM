@@ -146,6 +146,8 @@ def train_model(model, data, optim, epoch, params):
 
         print("=======================")
 
+        break
+
 
 
         try:
