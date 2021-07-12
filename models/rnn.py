@@ -77,6 +77,7 @@ class rnn_decoder(nn.Module):
     def forward(self, input, state, output=None, mask=None): 
         embs = self.embedding(input)
 
+
         if self.config.global_emb:
             if output is None:
                 output = embs.new_zeros(embs.size(0), self.config.tgt_vocab_size)
