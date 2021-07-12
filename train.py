@@ -127,6 +127,7 @@ def train_model(model, data, optim, epoch, params):
             src_len = src_len.cuda()
 
         lengths, indices = torch.sort(src_len, dim=0, descending=True)
+
         src = torch.index_select(src, dim=0, index=indices)
         tgt = torch.index_select(tgt, dim=0, index=indices)
         dec = tgt[:, :-1]
@@ -143,10 +144,13 @@ def train_model(model, data, optim, epoch, params):
         print("tgt=============")
         print(tgt)
         print(tgt.size())
+        print("=======================")
+        print(src_len.size())
+        print(type(src_len))
 
         print("=======================")
 
-        break
+
 
 
 
