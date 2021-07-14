@@ -77,7 +77,7 @@ class rnn_decoder(nn.Module):
     def forward(self, input, state, output=None, mask=None): 
         embs = self.embedding(input)
         print('=====tgt_emebdding==========')
-        print(embs)
+        print(embs.size())
 
 
         if self.config.global_emb:
