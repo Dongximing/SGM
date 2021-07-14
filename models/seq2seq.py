@@ -22,6 +22,10 @@ class seq2seq(nn.Module):
         self.use_cuda = config.use_cuda
         self.config = config
         self.criterion = nn.CrossEntropyLoss(ignore_index=utils.PAD, reduction='none')
+        print('========================nn.CrossEntropyLoss==================')
+        print(utils.PAD)
+        print('========================nn.CrossEntropyLoss==================')
+
         if config.use_cuda:
             self.criterion.cuda()
 
