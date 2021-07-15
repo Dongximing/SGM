@@ -34,6 +34,7 @@ class seq2seq(nn.Module):
         scores = scores.view(-1, scores.size(2))
         loss = self.criterion(scores, targets.contiguous().view(-1))
         print("==============loss=================================")
+        print((targets.contiguous().view(-1)))
         print(loss.size())
         return loss
 
