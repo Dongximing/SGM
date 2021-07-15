@@ -22,9 +22,9 @@ class seq2seq(nn.Module):
         self.use_cuda = config.use_cuda
         self.config = config
         self.criterion = nn.CrossEntropyLoss(ignore_index=utils.PAD, reduction='none')
-        print('========================nn.CrossEntropyLoss==================')
-        print(utils.PAD)
-        print('========================nn.CrossEntropyLoss==================')
+        # print('========================nn.CrossEntropyLoss==================')
+        # print(utils.PAD)
+        # print('========================nn.CrossEntropyLoss==================')
 
         if config.use_cuda:
             self.criterion.cuda()
@@ -32,6 +32,8 @@ class seq2seq(nn.Module):
     def compute_loss(self, scores, targets):
         scores = scores.view(-1, scores.size(2))
         loss = self.criterion(scores, targets.contiguous().view(-1))
+        print("==============loss=================================")
+        print(loss.size())
         return loss
 
     def forward(self, src, src_len, dec, targets):
