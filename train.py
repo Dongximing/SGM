@@ -167,12 +167,13 @@ def train_model(model, data, optim, epoch, params):
             pred = outputs.max(2)[1]
             targets = targets.t()
             num_correct = pred.eq(targets).masked_select(targets.ne(utils.PAD)).sum().item()
+
+            num_total = targets.ne(utils.PAD).sum().item()
+
             print('==================losss                       =========')
             print(num_total)
             print('==================losss                       =========')
             print(loss)
-
-            num_total = targets.ne(utils.PAD).sum().item()
             if config.max_split == 0:
                 loss = torch.sum(loss) / num_total
 
