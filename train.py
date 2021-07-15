@@ -170,6 +170,11 @@ def train_model(model, data, optim, epoch, params):
             num_total = targets.ne(utils.PAD).sum().item()
             if config.max_split == 0:
                 loss = torch.sum(loss) / num_total
+                print('==================losss                       =========')
+                print(num_total)
+                print('==================losss                       =========')
+                print(loss)
+
                 loss.backward()
             optim.step()
 
