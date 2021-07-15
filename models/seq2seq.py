@@ -76,6 +76,8 @@ class seq2seq(nn.Module):
         # print("before stack")
         # print(outputs.size())
         outputs = torch.stack(outputs)
+        print("=======================================kd===================================")
+        print(outputs)
         print("outputs")
         print(outputs.size())
 
